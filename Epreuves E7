@@ -1,3 +1,20 @@
 Question A1.1:
 Ligne 13 à ajouter :
   $type = null;
+
+Lignes 17 à modifier :
+  if (isset($_POST['type_de_logs']) AND $_POST['type_de_logs'] != ''){
+      $type = $_POST['type_de_logs'];
+  }
+
+
+Ligne 18 à modifier :
+  $query = "SELECT * FROM t_logs
+            WHERE (:date IS NULL OR DATE(log_date) = :date)
+            AND (:type IS NULL OR log_nature = :type)
+            ORDER BY log_date ASC";
+
+
+Lignes 22 à ajouter :
+  $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+
