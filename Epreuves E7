@@ -1,0 +1,3 @@
+Question A1.1:
+Ligne 13 à ajouter :
+  $type = null;
